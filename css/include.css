@@ -1,0 +1,368 @@
+@charset 'utf-8';
+
+/* HEADER */
+
+header {
+  width: 100%;
+  background: #fff;
+  border-bottom: 1px solid #828282;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 9;
+}
+header .inner {
+  height: 85px;
+}
+header .logo {
+  height: 64px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+}
+header .logo img {
+  height: 100%;
+}
+header .main-nav {
+  position: absolute;
+  bottom: 17px;
+  right: 58px;
+  display: flex;
+  font-family: 'Nanum Myeongjo', serif;
+  font-size: 18px;
+  font-weight: 700;
+}
+header .main-nav li {
+  margin-left: 28px;
+}
+header .main-nav li a:hover {
+  color: #b58557;
+}
+header .search {
+  width: 32px;
+  height: 32px;
+  position: absolute;
+  bottom: 17px;
+  right: 0;
+  padding: 5px;
+  box-sizing: border-box;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: .4s;
+}
+header .search:hover {
+  background: #b58557;
+  color: #fff;
+}
+
+
+/* FOOTER */
+footer {
+  /* width: 100%;
+  height: 100%; */
+  color: #f7f5f0;
+  background: #303030;
+}
+.store {
+  border-bottom: 1px solid #f7f5f0;
+}
+.store .inner { 
+  display: flex;
+  align-items: center;
+}
+.store .inner h5 {
+  font-size: 16px;
+  color: #f7f5f0;
+}
+.store .inner p {
+  margin: 20px 50px 20px 20px;
+  padding-bottom: 3px;
+}
+
+
+.footer-menu {
+  height: 480px;  
+  padding: 60px 0;
+  font-size: 12px;
+  position: relative;
+}
+.footer-menu .inner {
+  height:300px;
+}
+.footer-menu .footer-nav {
+  display: flex;
+}
+.footer-menu .footer-nav ul {
+  margin-right: 100px;
+}
+.footer-menu .footer-nav ul h4,
+.footer-menu .social .press h4 {
+  color: #f7f5f0;
+  font-size: 18px;
+  margin-bottom: 15px;
+}
+.footer-menu .footer-nav ul a {
+  color: #f7f5f0;
+  font-family: 'Roboto', sans-serif;
+}
+
+.footer-menu .social {
+  position: absolute;
+  top: 0;
+  right: 0;
+  
+}
+.footer-menu .social .press,
+.footer-menu .social .sns  {
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.footer-menu .social .press .arrow--white {
+  margin: 0 0 15px;
+}
+
+.footer-menu .info {
+  color: #b0865c;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+.footer-menu .copyright {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+}
+.footer-menu .footer-logo {
+  position: absolute;
+  bottom: 32px;
+  left: 50%;
+  margin-left: -75px;
+}
+
+
+
+/*---FullPage Scroll CSS---*/
+#fullpage-scroll-navigation{
+  list-style: none;
+  position: absolute;
+  top: 0px;
+  right: 25px;
+  z-index: 0;
+  background: green;
+  padding: 0;
+  margin: 0;
+  width: 0;
+  height: 100vh;
+  display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+  opacity: 0;
+  animation: navFadeIn 1s  ease-in-out;
+	animation-fill-mode: forwards;
+}
+@keyframes navFadeIn {
+  0%{
+    opacity: 0;
+  }
+  100%{
+    opacity: 1;
+  }
+}
+#fullpage-scroll-navigation li{
+  margin: 4px 0;
+  cursor: pointer;
+  padding: 8px;
+}
+#fullpage-scroll-navigation li a{
+  width: 4px;
+  height: 4px;
+  outline: 8px solid rgba(255,255,255,0);
+  border-radius: 10px;
+  background: #fff;
+  display: inline-block;
+  z-index: 100;transition-property: transform ;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+  cursor: pointer;
+}
+#fullpage-scroll-navigation li a.active-nav,
+#fullpage-scroll-navigation li:hover a{
+  transition-property: transform ;
+	transition-duration: 0.2s;
+	transition-timing-function: ease-in-out;
+  transform: scale(2.6);
+}
+#fullpage-scroll-container{
+  width: 100%;
+  min-height: 100vh;
+  max-height: 100vh;
+  position: fixed;
+  overflow: hidden;
+  background: radial-gradient(#333, #222);
+}
+.fullpage-scroll-element{
+  width: 100%;
+  min-height: 100vh;
+  background: #333;
+  overflow: hidden;
+  display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  z-index: 0;
+  opacity: 0;
+}
+.fullpage-scroll-element:last-child {
+  /* min-height: 480px;
+  padding-top: calc(100vh - 480px); */
+}
+.active-page,
+.move-in-direction-0,
+.move-in-direction-1{
+  z-index: 1;
+  opacity: 1;
+  box-shadow: 0px 0px 10px rgba(0,0,0, 0.5);
+}
+.move-out-direction-0,
+.move-out-direction-1{
+  z-index: 0;
+  opacity: 1;
+  box-shadow: 0px 0px 10px rgba(0,0,0, 0.5);
+}
+
+
+/*Add your custom animation effects here*/
+.move-out-direction-1{
+  animation: outUp 0.2s  ease-in-out;
+	animation-fill-mode: forwards;
+  transform: scale(1);
+}
+@keyframes outUp{
+		0%{
+			transform: scale(1);
+		}
+		100%{
+			transform: scale(0.6);
+		}
+}
+.move-in-direction-1{
+  animation: inUp 0.4s  ease-in-out;
+	animation-fill-mode: forwards;
+}
+@keyframes inUp{
+		0%{
+			transform: translateY(100%);
+		}
+		100%{
+			transform: translateY(0%);
+		}
+}
+.move-out-direction-0{
+  animation: outDown 0.2s  ease-in-out;
+	animation-fill-mode: forwards;
+  transform: translateY(0%);
+  z-index: 1;
+}
+@keyframes outDown{
+		0%{
+			transform: translateY(0%);
+		}
+		100%{
+			transform: translateY(100%);
+		}
+}
+.move-in-direction-0{
+  animation: inDown 0.4s  ease-in-out;
+	animation-fill-mode: forwards;
+  transform: scale(0.6);
+  z-index: 0;
+}
+@keyframes inDown{
+		0%{
+			transform: scale(0.6);
+		}
+		100%{
+			transform: scale(1);
+		}
+}
+
+
+/* .fullpage-scroll-element style */
+#one {
+  background: #FFF;
+}
+#two {
+  background: #FFF;
+}
+#three {
+  background: #FFF;
+}
+#four {
+  background: #f6f5f0;
+}
+#five {}
+#six {
+  background: #303030;
+}
+
+
+
+
+
+
+
+/* --- COMMON --- */
+
+/* ARROW */
+.arrow,
+.arrow--white {
+  width: 40px;
+  height: 21px;
+  background: url(../images/arrow.png) no-repeat;
+  text-indent: -9999px;
+  display: block;
+  margin: 10px 0;
+}
+.arrow--white {
+  background-image: url(../images/arrow-22.png);
+}
+
+
+/*BUTTON*/
+.btn {
+  width: 240px;
+  padding: 10px;
+  /* background: rgba(225, 225, 225, 1); */
+  border: 2px solid #eee;
+  border-radius: 0 10px 0 10px;
+  color: #eee;
+  font-size: 18px;
+  text-align: center;
+  cursor: pointer;
+  box-sizing: border-box;
+  display: block;
+  transition: .4s;
+}
+.btn:hover {
+  background-color: #fff;
+  color: #b58557;
+}
+
+
+
+
+
+
+
+
+
+
+
